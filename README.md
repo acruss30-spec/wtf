@@ -111,6 +111,136 @@ wtf messy.js --roast
 ──────────────────────────────────────────────────
 ```
 
+### Blame mode
+
+```
+wtf blame auth.js
+```
+
+```
+  Analyzing contributions: auth.js
+──────────────────────────────────────────────────
+
+  Lines written by:
+    Andrew                 120  ████████████████████ 67%
+    Luna                    40  ██████ 22%
+    Unknown                 20  ███ 11%
+
+  Developer commentary:
+
+    > be Andrew
+    > add feature quickly
+    > promise to refactor later
+    > never refactor
+
+    classic.
+
+──────────────────────────────────────────────────
+```
+
+### Complexity analysis
+
+```
+wtf server.js --complexity
+```
+
+```
+  Complexity report: server.js
+──────────────────────────────────────────────────
+
+  Functions:              14
+  Average function length: 32 lines
+  Largest function:        processRequest() (97 lines)
+  Max nesting depth:       6
+
+  Warnings:
+    • deeply nested conditionals
+    • repeated vague variable naming
+
+  Verdict:
+    concerning
+
+  this function is doing way too much.
+
+──────────────────────────────────────────────────
+```
+
+### Project analysis
+
+```
+wtf project
+```
+
+```
+  Project analysis
+──────────────────────────────────────────────────
+
+  Files analyzed: 42
+
+  Largest file:
+    server.js (910 lines)
+
+  Total functions: 128
+  Total classes:   5
+  Average file length: 110 lines
+
+  Most common function names:
+    init (×4)
+    handleRequest (×3)
+    processData (×2)
+
+  Code smells detected:
+    • 3 large files (>300 lines)
+    • repeated vague variable naming
+
+  Developer commentary:
+
+    this project has strong "we'll refactor later" energy.
+
+──────────────────────────────────────────────────
+```
+
+### Therapy mode
+
+```
+wtf legacy.js --therapy
+```
+
+```
+  Therapy session for legacy.js
+──────────────────────────────────────────────────
+
+  You are not responsible for this code.
+  Take a deep breath.
+  We will get through this together.
+  It's okay to not understand legacy code.
+
+  The lack of comments is a systemic issue, not a personal one.
+
+  Session complete. You are valid.
+
+──────────────────────────────────────────────────
+```
+
+### Quick summary
+
+```
+wtf file.js --summary
+```
+
+```
+  auth.js
+──────────────────────────────────────────────────
+
+  180 lines · 12 functions · 1 class
+
+  main job: handles user authentication
+
+  verdict: reasonable but messy.
+
+──────────────────────────────────────────────────
+```
+
 ### Explain mode
 
 ```
@@ -125,7 +255,7 @@ Structured technical explanation with minimal humor.
 wtf src/
 ```
 
-Analyze an entire project.
+Analyze a directory of files.
 
 ### Git diff explanation
 
@@ -145,12 +275,25 @@ Useful for automation.
 
 ---
 
+## Commands
+
+| Command | Description |
+|---------|-------------|
+| `wtf <file>` | Analyze a file (default mode) |
+| `wtf <dir>` | Analyze a directory |
+| `wtf blame <file>` | See who wrote what |
+| `wtf diff` | Explain the current git diff |
+| `wtf project` | Full project analysis from cwd |
+
 ## Flags
 
 | Flag | Description |
 |------|-------------|
 | `--explain` | Structured explanation |
 | `--roast` | Full meme roast mode |
+| `--complexity` | Complexity analysis report |
+| `--therapy` | Emotional support for your code |
+| `--summary` | Short one-glance summary |
 | `--json` | Raw JSON output |
 | `--max-files <n>` | Max files analyzed in directory mode |
 | `--top <n>` | Show top N results |
@@ -162,7 +305,7 @@ Useful for automation.
 1. Parses JavaScript using [Acorn](https://github.com/acornjs/acorn)
 2. Walks the AST
 3. Extracts: functions, classes, imports, variable names
-4. Calculates simple code metrics
+4. Calculates code metrics and complexity
 5. Generates developer commentary using phrase pools
 
 No AI involved. Just deterministic analysis and developer sarcasm.
