@@ -248,6 +248,34 @@ wtf legacy.js --therapy
 ──────────────────────────────────────────────────
 ```
 
+### Rate a file
+
+```
+wtf rate server.js
+```
+
+```
+  Code rating: server.js
+──────────────────────────────────────────────────
+
+  6.2 / 10
+
+  strengths:
+    • reasonable function count
+    • has comments
+    • focused module
+
+  weaknesses:
+    • large file
+    • vague variable names
+    • deeply nested logic
+
+  verdict:
+    functional but could be cleaner.
+
+──────────────────────────────────────────────────
+```
+
 ### Quick summary
 
 ```
@@ -310,6 +338,7 @@ Useful for automation.
 | `wtf blame <file>` | See who wrote what |
 | `wtf diff` | Explain the current git diff |
 | `wtf project` | Full project analysis from cwd |
+| `wtf rate <file>` | Rate a file from 0 to 10 |
 
 ## Flags
 
@@ -328,11 +357,12 @@ Useful for automation.
 
 ## How it works
 
-1. Parses JavaScript using [Acorn](https://github.com/acornjs/acorn)
-2. Walks the AST
-3. Extracts: functions, classes, imports, variable names
-4. Calculates code metrics and complexity
-5. Generates developer commentary using phrase pools
+Written in TypeScript. Parses JavaScript using [Acorn](https://github.com/acornjs/acorn).
+
+1. Walks the AST
+2. Extracts: functions, classes, imports, variable names
+3. Calculates code metrics and complexity
+4. Generates developer commentary using phrase pools
 
 No AI involved. Just deterministic analysis and developer sarcasm.
 
@@ -343,6 +373,20 @@ No AI involved. Just deterministic analysis and developer sarcasm.
 Currently: JavaScript (`.js` `.mjs` `.cjs` `.jsx`)
 
 TypeScript support planned.
+
+---
+
+## Development
+
+```
+git clone https://github.com/ecx2f/wtf
+cd wtf
+npm install
+npm run build
+npm link
+```
+
+Now `wtf` is available globally from your local build.
 
 ---
 
