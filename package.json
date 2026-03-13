@@ -4,7 +4,7 @@
   "description": "understand code the honest way.",
   "type": "module",
   "bin": {
-    "wtf": "./dist/bin/wtf.js"
+    "wtf": "dist/bin/wtf.js"
   },
   "main": "./dist/src/cli.js",
   "files": [
