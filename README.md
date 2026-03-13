@@ -8,7 +8,33 @@
 
 A CLI that reads your source code and explains it in a **developer meme / greentext / brutally honest style** — while still providing a useful technical summary.
 
-No AI. No API keys. No network calls. Just AST parsing and questionable developer decisions.
+No AI.<br>
+No API keys.<br>
+No network calls.
+
+Just AST parsing and developer sarcasm.
+
+```
+$ wtf project
+
+  Project analysis
+──────────────────────────────────────────────────
+
+  Files analyzed: 42
+
+  Largest file:
+    server.js (910 lines)
+
+  Code smells detected:
+    • large files
+    • vague variable names
+
+  Developer commentary:
+
+    this project has strong "we'll refactor later" energy.
+
+──────────────────────────────────────────────────
+```
 
 ```
 $ wtf legacy.js --roast
